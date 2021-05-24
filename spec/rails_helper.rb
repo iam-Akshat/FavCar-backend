@@ -4,13 +4,12 @@ require 'database_cleaner'
 require 'shoulda-matchers'
 require 'rspec/rails'
 
-
 ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../config/environment', __dir__)
 
 # Prevent database truncation if the environment is production
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 
 begin
   ActiveRecord::Migration.maintain_test_schema!
@@ -47,7 +46,6 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-
   config.include FactoryBot::Syntax::Methods
 
   # start by truncating all the tables but then use the faster transaction strategy the rest of the time.
@@ -62,5 +60,4 @@ RSpec.configure do |config|
       example.run
     end
   end
-
 end
