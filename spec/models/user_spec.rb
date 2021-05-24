@@ -10,4 +10,9 @@ RSpec.describe User, type: :model do
 
     it { should validate_length_of(:password).is_at_least(6).is_at_most(20) }
   end
+
+  describe 'associations' do
+    it { should have_many :favourites }
+    it { should have_many :favourite_cars }
+  end
 end
