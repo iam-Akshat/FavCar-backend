@@ -9,4 +9,8 @@ class User < ApplicationRecord
   validates_uniqueness_of :email
 
   validates :password, length: { minimum: 6, maximum: 20 }, on: :create
+
+  def user_info
+    { liked: favourites.pluck(:car_id), name: name }
+  end
 end
