@@ -27,7 +27,7 @@ RSpec.describe 'Cars', type: :request do
     context 'when record exists' do
       it 'returns the car' do
         expect(parsed_json_response).not_to be_empty
-        expect(parsed_json_response['id']).to eq car_id
+        expect(parsed_json_response['car']['id']).to eq car_id
       end
 
       it 'returns status code 200' do
