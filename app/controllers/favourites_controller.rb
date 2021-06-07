@@ -1,4 +1,10 @@
 class FavouritesController < ApplicationController
+
+  def index
+    @favs = current_user.favourites.joins(:car).select('"cars".name,"cars".image_url,"cars".id').to_json
+    json_response(@favs)
+  end
+
   def create
     @car = Car.find_by!(id: params[:car_id])
     fav = current_user.favourites.create!(car: @car)
