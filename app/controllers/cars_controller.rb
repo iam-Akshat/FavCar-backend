@@ -8,7 +8,7 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
     user_liked = false
     begin
-      Favourite.find_by(user_id: current_user.id, car_id: @car.id)
+      Favourite.find_by!(user_id: current_user.id, car_id: @car.id)
       user_liked = true
     rescue StandardError
       user_liked = false
