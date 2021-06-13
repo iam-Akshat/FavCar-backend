@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   def index
-    @cars = Car.all.as_json(only: %i[id name image_url])
+    @cars = Car.all.as_json(only: %i[id name image_url price])
     json_response @cars
   end
 
