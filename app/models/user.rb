@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   validates_uniqueness_of :email
 
+  validates_format_of :email, with: URI::MailTo::EMAIL_REGEXP
+
   validates :password, length: { minimum: 6, maximum: 20 }, on: :create
 
   def user_info
